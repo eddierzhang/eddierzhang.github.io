@@ -3,700 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Eddie Zhang — researcher, tinkerer, and community-builder working on soft robotics, computer vision, and environmental AI.">
+  <meta name="theme-color" content="#14304f">
+  <link rel="icon" href="EddieLogo.png" type="image/png">
   <title>Eddie Zhang - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    html {
-      font-size: 115%;
-    }
-    body {
-      margin: 0;
-      font-family: 'Open Sans', 'Segoe UI', sans-serif;
-      background-color: #f6f8fa;
-      color: #1a2636;
-      scroll-behavior: smooth;
-      font-weight: 400;
-    }
-
-    /* Animation keyframes */
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Apply animation to sections */
-    section {
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
-      transform: translateY(15px);
-      animation-delay: 0.1s;
-    }
-
-    /* Stagger animations for projects */
-    .project {
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .project:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-    .project:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-    .project:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-    .project:nth-child(4) {
-      animation-delay: 0.8s;
-    }
-    .project:nth-child(5) {
-      animation-delay: 1s;
-    }
-
-    /* Animate award categories with stagger */
-    .award-category {
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .award-category:nth-child(1) {
-      animation-delay: 1.2s;
-    }
-    .award-category:nth-child(2) {
-      animation-delay: 1.4s;
-    }
-    .award-category:nth-child(3) {
-      animation-delay: 1.6s;
-    }
-    .award-category:nth-child(4) {
-      animation-delay: 1.8s;
-    }
-
-    /* Animate community service and publications */
-    #community-service, #publications {
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeInUp 0.8s ease forwards;
-      animation-delay: 2s;
-    }
-
-    header {
-      background-color: #183153;
-      color: #f6f8fa;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-flex {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 0.1rem;
-    }
-
-.header-logo-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header-logo-name h1 {
-  margin: 0;
-  font-size: 2rem;
-  font-family: 'Montserrat', 'Segoe UI', sans-serif;
-  font-weight: 700;
-}
-
-    nav a {
-      color: #f6f8fa;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #ff6f61;
-      text-decoration: underline;
-    }
-
-    /* Dropdown container */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    /* Dropdown button */
-    .dropbtn {
-      color: #f6f8fa;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    /* Dropdown content (hidden by default) */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f6f8fa;
-      min-width: 200px;
-      box-shadow: 0px 8px 16px rgba(24,49,83,0.15);
-      z-index: 1000;
-      flex-direction: column;
-    }
-
-    /* Show the dropdown on hover */
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
-
-    /* Style links inside dropdown */
-    .dropdown-content a {
-      color: #183153;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      display: block;
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #e0f7fa;
-      color: #ff6f61;
-    }
-
-    #community-service {
-      padding: 2rem;
-      max-width: 100%;
-      margin: auto;
-      text-align: center;
-      color: #1a2636;
-      margin-bottom: 2rem;
-      background-color: #f6f8fa;
-    }
-
-  #community-service .tagline {
-      font-size: 1rem;
-      max-width: 1600px;
-      min-height: 4rem; 
-      margin: 0 auto;
-      text-align:left;
-    } 
-
-    #awards, #publications {
-      padding: 2rem;
-      text-align: center;
-      background-color: #f6f8fa;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(24,49,83,0.07);
-    }
-
-    #awards {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .awards-grid {
-      display: grid;
-      grid-template-areas:
-        "research business"
-        "olympiads volunteering";
-      grid-template-columns: 2.2fr 2.2fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1rem;
-      text-align: left;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .award-category {
-      background-color: #e0f7fa;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(24,49,83,0.10);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-    }
-
-    .award-category:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .award-category h3 {
-      color: #009688;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-weight: 700;
-    }
-
-    .award-category ul {
-      list-style: none;
-      padding-left: 1rem;
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-    }
-
-    .award-category li {
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-      font-weight: 400;
-    }
-
-    .award-category li::before {
-      content: "• ";
-      color: #009688;
-    }
-
-    .publications-list {
-      list-style: none;
-      padding-left: 0;
-      max-width: 800px;
-      margin: 1rem auto 0 auto;
-      text-align: left;
-    }
-
-    .publications-list li::before {
-      content: "📄 ";
-      margin-right: 0.5rem;
-    }
-
-    .publications-list a {
-      color: #009688;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .publications-list a:hover {
-      color: #ff6f61;
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 3rem 2rem;
-      max-width: 100%;
-      margin: auto;
-      margin-bottom: 2rem;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(24,49,83,0.07);
-      background-color: #f6f8fa;
-    }
-
-    #about {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      color: #ff6f61;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .about-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.5rem;
-    }
-
-    .about-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-    }
-
-    .about-photo {
-      width: 400px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 20px; /* Rounded corners instead of circle */
-      border: 3px solid #009688;
-    }
-    #projects {
-      padding: 0.2rem 2rem 2rem 2rem;
-    }
-
-    .project {
-      background-color: #e0f7fa;
-      border-left: 4px solid #009688;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(24,49,83,0.08);
-      border-radius: 12px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-      max-width: 95%;   /* Add this */
-      margin-left: auto;  /* Center horizontally */
-      margin-right: auto; /* Center horizontally */
-    }
-
-    .project:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .project h3 {
-      margin-top: 0;
-      color: #009688;
-      font-size: 1.4rem;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-weight: 700;
-    }
-
-    .project p {
-      font-weight: 400;
-    }
-
-    .particle {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 1;
-      animation: fadeOut 1s ease-out forwards;
-      z-index: 10000;
-      box-shadow: 0 0 10px white;
-    }
-
-    @keyframes fadeOut {
-      to {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    .project img.project-image {
-      width: 100%;
-      max-height: 300px;
-      object-fit: contain;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: #555;
-      margin-right: 3rem;
-    }
-
-    .expand-button {
-      background-color: #ff6f61;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: 700;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-size: 1rem;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-      transition: background 0.2s, box-shadow 0.2s;
-    }
-
-    .expand-button:hover {
-      background-color: #183153;
-    }
-
-    .project-details {
-      font-size: 0.95rem;
-      color: #444444;
-      line-height: 1.6;
-      margin-top: 0.5rem;
-      font-family: 'Open Sans', 'Segoe UI', sans-serif;
-      text-align: left;
-    }
-
-    .project-details p {
-      margin-bottom: 1rem;
-      font-family: 'Open Sans', 'Segoe UI', sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .project-details ul,
-    .project-details li {
-      font-family: 'Open Sans', 'Segoe UI', sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .project-details h4 {
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-weight: 700;
-    }
-
-    /* Font assignments */
-    p, .project-details, .project-details p, .project-details ul, .project-details li {
-      font-family: 'Open Sans', 'Segoe UI', sans-serif;
-    }
-    .award-category, .award-category ul, .award-category li, nav a {
-      font-family: 'Nunito', 'Segoe UI', sans-serif;
-    }
-    h1, h2, h3, .award-category h3 {
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-    }
-
-
-    /* --- Media Gallery Styling Improvements --- */
-    .scroll-hint {
-      text-align: center;
-      font-size: 0.9rem;  /* larger text */
-      color: #009688;
-      font-style: italic;
-      font-weight: 700;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-      user-select: none;
-      transition: opacity 0.3s ease;
-    }
-    .scroll-hint:hover {
-      opacity: 0.8;
-    }
-    .media-gallery {
-      position: relative;
-      max-width: 100%;
-      margin: 1rem auto;
-      overflow: hidden;
-      border-radius: 12px;
-      padding: 0.5rem;
-      background-color: #e0f7fa;
-    }
-
-    /* Unified media-container rules for all galleries (horizontal scroll always visible) */
-    .media-container {
-      display: grid;
-      grid-template-rows: repeat(3, auto);
-      gap: 0.25rem;
-      overflow-x: scroll !important;
-      overflow-y: hidden;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: auto;
-      padding-bottom: 0.5rem;
-    }
-    /* WebKit scrollbars for all galleries */
-    .media-container::-webkit-scrollbar {
-      height: 12px;
-      background-color: #e0f7fa;
-    }
-    .media-container::-webkit-scrollbar-thumb {
-      background-color: #009688;
-      border-radius: 6px;
-    }
-
-    /* Unified media-row for all galleries */
-    .media-row {
-      display: grid;
-      grid-auto-flow: column;
-      gap: 0.25rem;
-      transition: transform 0.4s ease;
-      will-change: transform;
-    }
-    /* Allow horizontal scrolling for flex-based galleries (for override cases) */
-    .media-items {
-      transition: transform 0.4s ease;
-      will-change: transform;
-    }
-
-    /* Unified media-wrapper */
-    .media-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .media-caption {
-      font-size: 0.85rem;
-      color: #333;
-      margin-top: 0.25rem;
-      text-align: center;
-      max-width: 100%;
-    }
-    .media-item {
-      flex: 0 0 auto;
-      max-height: 300px;
-      border-radius: 12px;
-      object-fit: contain;
-      margin: 0;
-      user-select: none;
-      transition: transform 0.3s ease;
-    }
-    .media-item:hover {
-      transform: scale(1.015);
-      cursor: pointer;
-    }
-    /* Tall aspect ratio items spanning both rows in gallery */
-    .media-container > .tall-item {
-      flex: 0 0 auto;
-      height: 600px;
-      object-fit: contain;
-      width: 100%;
-      margin-bottom: 0.5rem;
-      border-radius: 12px;
-    }
-    /* Hide gallery navigation buttons */
-    .gallery-btn {
-      display: none !important;
-    }
-    /* Project container */
-    .project {
-      width: 100%;
-    }
-    .main-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .main-image {
-      width: auto;
-      max-height: 400px;
-      display: block;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-    .tagline {
-      max-width: 700px;
-      font-style: italic;
-      color: #333333;
-      margin-left: 3rem;
-      margin-bottom: 1rem;
-    }
-    /* Project details list */
-    .project-details li {
-      color: #555;
-      margin-bottom: 0.5rem;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-    /* --- Page-specific gallery overrides --- */
-    /* STEMWorkshops: two-row grid with tight spacing */
-/*     #STEMWorkshops .media-container {
-      display: grid !important;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(2, auto);
-      overflow-x: scroll !important;
-      overflow-y: hidden;
-      gap: 0;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-    #STEMWorkshops .media-row {
-      display: contents;
-    }
-    #STEMWorkshops .media-wrapper {
-      display: block;
-      margin-right: 0.05rem;
-      margin-bottom: 0.05rem;
-    }
-    #STEMWorkshops .media-item {
-      flex: 0 0 auto;
-      max-height: 300px;
-    } */
-    
-    .extra-images {
-      display: none;
-      margin-top: 0.5rem;
-      gap: 0.25rem;
-      display: grid;
-      grid-auto-flow: column;
-      overflow-x: scroll;
-      padding-bottom: 0.5rem;
-    }
-
-    .show-more-images-button {
-      background-color: #ff6f61;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: 700;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-      transition: background 0.2s;
-    }
-
-    .show-more-images-button:hover {
-      background-color: #183153;
-    }
-
-
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 20000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.image-modal img {
-  margin: auto;
-  display: block;
-  max-width: 85%;
-  max-height: 85%;
-  border-radius: 10px;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.close-modal:hover {
-  color: #ccc;
-}
-
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 <!-- Google tag (gtag.js) -->
 <script
   async
@@ -799,83 +112,83 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="SPIRoRotate.gif" alt="SPIRo animation" class="media-item" />
+              <img src="SPIRoRotate.gif" alt="SPIRo animation" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo rotation animation.</p>
             </div>
             <div class="media-wrapper">
               <video src="SPIRoDemo.mov" controls class="media-item"></video>
-              <p class="media-caption">SPIRo crawling demonstration video. <a href="https://www.youtube.com/watch?v=Btl4Zmm5sTo" target="_blank" rel = "noopener noreferrer">Video Link</a></p>
+              <p class="media-caption">SPIRo crawling demonstration video. <a href="https://www.youtube.com/watch?v=Btl4Zmm5sTo" target="_blank" rel="noopener noreferrer">Video Link</a></p>
             </div>
             <div class="media-wrapper">
-              <img src="Progression.png" alt="SPIRo second" class="media-item" />
+              <img src="Progression.png" alt="SPIRo second" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo Progression</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoMain.jpg" alt="SPIRo main" class="media-item active" />
+              <img src="SPIRoMain.jpg" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">SPIRo crawling on a horizontal pipe</p>
             </div>
             <div class="media-wrapper">
-            <img src="SPIRoCircuit.jpg" alt="SPIRo circuit" class="media-item active" />
+            <img src="SPIRoCircuit.jpg" alt="SPIRo circuit" class="media-item active" loading="lazy" />
             <p class="media-caption">SPIRo control circuit</p>
           </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="SPIRo Conrad 1.jpg" alt="SPIRo main" class="media-item active" />
+              <img src="SPIRo Conrad 1.jpg" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">SPIRo at Conrad Challenge event.</p>
             </div>
             <div class="media-wrapper">
-              <img src="METEC 6.png" alt="SPIRo main" class="media-item active" />
+              <img src="METEC 6.png" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">Working with METEC Staff</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoField.jpg" alt="SPIRo second" class="media-item" />
+              <img src="SPIRoField.jpg" alt="SPIRo second" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo in field testing at METEC</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoMETECEddie.jpg" alt="SPIRo main" class="media-item active" />
+              <img src="SPIRoMETECEddie.jpg" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">Testing at METEC</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoMETEC1.jpg" alt="SPIRo main" class="media-item active" />
+              <img src="SPIRoMETEC1.jpg" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">Getting SPIRo sensors calibrated before testing</p>
             </div>
             <div class="media-wrapper">
-              <img src="HomeLab.png" alt="SPIRo main" class="media-item active" />
+              <img src="HomeLab.png" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">At-Home Testing of SPIRo</p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="SIRoPoster.png" alt="SPIRo second" class="media-item" />
-              <p class="media-caption">SPIRo Research Poster (<a href="Poster.pdf" target="_blank">View Enlarged PDF</a>)</p>
+              <img src="SIRoPoster.png" alt="SPIRo second" class="media-item" loading="lazy" />
+              <p class="media-caption">SPIRo Research Poster (<a href="Poster.pdf" target="_blank" rel="noopener noreferrer">View Enlarged PDF</a>)</p>
             </div>
             <div class="media-wrapper">
-              <img src="Patent.png" alt="SPIRo main" class="media-item active" />
+              <img src="Patent.png" alt="SPIRo main" class="media-item active" loading="lazy" />
               <p class="media-caption">Patent, To-Be Published Soon</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoArch1.png" alt="SPIRo JSHS 1" class="media-item" />
+              <img src="SPIRoArch1.png" alt="SPIRo JSHS 1" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo Gas Leak Detection ML Model</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRoJSHS02.jpg" alt="SPIRo JSHS 2" class="media-item active" />
+              <img src="SPIRoJSHS02.jpg" alt="SPIRo JSHS 2" class="media-item active" loading="lazy" />
               <p class="media-caption">Oral Presentation at JSHS</p>
             </div>
             <div class="media-wrapper">
-              <img src="ICMIPresentation.jpg" alt="Presentation at ICMI" class="media-item" />
+              <img src="ICMIPresentation.jpg" alt="Presentation at ICMI" class="media-item" loading="lazy" />
               <p class="media-caption">Presentation at ICMI</p>
             </div>
             <div class="media-wrapper">
-              <img src="ICMIProf.jpg" alt="ICMI Prof" class="media-item" />
+              <img src="ICMIProf.jpg" alt="ICMI Prof" class="media-item" loading="lazy" />
               <p class="media-caption">At ICMI with Professor Ahmed Abdelgawad</p>
             </div>
             <div class="media-wrapper">
-              <img src="ICMIBestPaper.jpg" alt="Best Paper Award" class="media-item" />
+              <img src="ICMIBestPaper.jpg" alt="Best Paper Award" class="media-item" loading="lazy" />
               <p class="media-caption">ICMI 3rd Best Paper Award</p>
             </div>
             <div class="media-wrapper">
-              <img src="Robosoft 1.png" alt="SPIRo animation" class="media-item" />
+              <img src="Robosoft 1.png" alt="SPIRo animation" class="media-item" loading="lazy" />
               <p class="media-caption">Presentation at Robosoft '25</p>
             </div>
           </div>
@@ -979,7 +292,7 @@
             </a>," 
             2025 IEEE 8th International Conference on Soft Robotics (RoboSoft), Lausanne, Switzerland, 2025, pp. 1-6, 
             doi: <a href="https://doi.org/10.1109/RoboSoft63089.2025.11020922" target="_blank" rel="noopener noreferrer">10.1109/RoboSoft63089.2025.11020922</a>.
-            (<a href="https://docs.google.com/presentation/d/1-sF1N4rO-7iCKxS-nM50NiEAu8bXiT3p/edit?usp=sharing&ouid=111561540897091449886&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">Slides</a>, 
+            (<a href="https://docs.google.com/presentation/d/1-sF1N4rO-7iCKxS-nM50NiEAu8bXiT3p/edit?usp=sharing&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">Slides</a>, 
             <a href="https://youtu.be/hdthXFKD-o8" target="_blank" rel="noopener noreferrer">Full-form 8-minute Talk</a>)
           </li>
           <li>
@@ -1004,37 +317,37 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="CopilotPoster.jpg" alt="Copilot Poster" class="media-item" />
-              <p class="media-caption">Copilot Research Poster (<a href="CopilotPoster.pdf" target="_blank">View Enlarged PDF</a>)</p>
+              <img src="CopilotPoster.jpg" alt="Copilot Poster" class="media-item" loading="lazy" />
+              <p class="media-caption">Copilot Research Poster (<a href="CopilotPoster.pdf" target="_blank" rel="noopener noreferrer">View Enlarged PDF</a>)</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueLab1.jpg" alt="Manikin" class="media-item active" />
+              <img src="PurdueLab1.jpg" alt="Manikin" class="media-item active" loading="lazy" />
               <p class="media-caption">With Mainikin in CARE Lab at Purdue</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueLab2.jpg" alt="ABB Robot" class="media-item" />
+              <img src="PurdueLab2.jpg" alt="ABB Robot" class="media-item" loading="lazy" />
               <p class="media-caption">With ABB medical Robot in CARE</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueLab3.jpg" alt="Working on ABB Robot" class="media-item" />
+              <img src="PurdueLab3.jpg" alt="Working on ABB Robot" class="media-item" loading="lazy" />
               <p class="media-caption">Working on the ABB Robot</p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="ACIVS_Poster_ID_69.jpg" alt="ACIVS Poster" class="media-item" />
-              <p class="media-caption">ACIVS2025 Conference Poster (<a href="ACIVS_Poster_ID_69.pdf" target="_blank">View Enlarged PDF</a>)</p>
+              <img src="ACIVS_Poster_ID_69.jpg" alt="ACIVS Poster" class="media-item" loading="lazy" />
+              <p class="media-caption">ACIVS2025 Conference Poster (<a href="ACIVS_Poster_ID_69.pdf" target="_blank" rel="noopener noreferrer">View Enlarged PDF</a>)</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueACIVS1.jpg" alt="ACIVS Presentation" class="media-item" />
+              <img src="PurdueACIVS1.jpg" alt="ACIVS Presentation" class="media-item" loading="lazy" />
               <p class="media-caption">Presentation at ACIVS2025 in Tokyo</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueACIVS2.jpg" alt="With Prof" class="media-item" />
+              <img src="PurdueACIVS2.jpg" alt="With Prof" class="media-item" loading="lazy" />
               <p class="media-caption">With Professor Patrice Delmas</p>
             </div>
             <div class="media-wrapper">
-              <img src="PurdueACIVS3.jpg" alt="ACIVS" class="media-item" />
+              <img src="PurdueACIVS3.jpg" alt="ACIVS" class="media-item" loading="lazy" />
               <p class="media-caption">Engaging Discussions with Researchers at ACIVS2025</p>
             </div>
           </div>
@@ -1071,19 +384,19 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="SSTPPoster.jpg" alt="SSTP Poster" class="media-item" />
-              <p class="media-caption">SSTP Poster (<a href="SSTPPoster.pdf" target="_blank">View Enlarged PDF</a>)</p>
+              <img src="SSTPPoster.jpg" alt="SSTP Poster" class="media-item" loading="lazy" />
+              <p class="media-caption">SSTP Poster (<a href="SSTPPoster.pdf" target="_blank" rel="noopener noreferrer">View Enlarged PDF</a>)</p>
             </div>
             <div class="media-wrapper">
-              <img src="SSTP1.jpg" alt="Turtle1" class="media-item active" />
+              <img src="SSTP1.jpg" alt="Turtle1" class="media-item active" loading="lazy" />
               <p class="media-caption">Poster Presetation.</p>
             </div>
             <div class="media-wrapper">
-              <img src="SSTP2.jpg" alt="turtle2" class="media-item" />
+              <img src="SSTP2.jpg" alt="turtle2" class="media-item" loading="lazy" />
               <p class="media-caption">With Professor</p>
             </div>
             <div class="media-wrapper">
-              <img src="SSTP4.jpg" alt="SSTP4" class="media-item" />
+              <img src="SSTP4.jpg" alt="SSTP4" class="media-item" loading="lazy" />
               <p class="media-caption">SSTP</p>
             </div>
           </div>
@@ -1127,41 +440,41 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_Water Pollution vs_ Income Level.avif" alt="Water Quality vs Income" class="media-item active" />
+              <img src="PlanetaryPulse_Water Pollution vs_ Income Level.avif" alt="Water Quality vs Income" class="media-item active" loading="lazy" />
               <p class="media-caption">Water Quality vs Income</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_Green Illustrative 4 Ways to Create a Green Environment Poster.avif" alt="Air Pollution vs Cancer" class="media-item active" />
+              <img src="PlanetaryPulse_Green Illustrative 4 Ways to Create a Green Environment Poster.avif" alt="Air Pollution vs Cancer" class="media-item active" loading="lazy" />
               <p class="media-caption">Air Pollution vs Cancer</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_Pollution Index vs_ Poverty Rate.avif" alt="Pollution Index vs Poverty Rate" class="media-item active" />
+              <img src="PlanetaryPulse_Pollution Index vs_ Poverty Rate.avif" alt="Pollution Index vs Poverty Rate" class="media-item active" loading="lazy" />
               <p class="media-caption">Pollution Index vs Poverty Rate</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_Regulations_Voting.avif" alt="Regulations vs Voting" class="media-item active" />
+              <img src="PlanetaryPulse_Regulations_Voting.avif" alt="Regulations vs Voting" class="media-item active" loading="lazy" />
               <p class="media-caption">Regulations vs Voting</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_Air Quality In Relation to Voting.avif" alt="Air Quality vs Voting" class="media-item active" />
+              <img src="PlanetaryPulse_Air Quality In Relation to Voting.avif" alt="Air Quality vs Voting" class="media-item active" loading="lazy" />
               <p class="media-caption">Air Quality vs Voting</p>
             </div>
           </div> 
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="OttoLee1.jpg" alt="OttoLee1" class="media-item active" />
+              <img src="OttoLee1.jpg" alt="OttoLee1" class="media-item active" loading="lazy" />
               <p class="media-caption">With County Supervisor Otto Lee @ Environmental Summit</p>
             </div>
             <div class="media-wrapper">
-              <img src="OttoLee2.jpg" alt="OttoLee2" class="media-item active" />
+              <img src="OttoLee2.jpg" alt="OttoLee2" class="media-item active" loading="lazy" />
               <p class="media-caption">Discussing Issues with County Supervisor Otto Lee</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_zoning.avif" alt="Zoning" class="media-item active" />
+              <img src="PlanetaryPulse_zoning.avif" alt="Zoning" class="media-item active" loading="lazy" />
               <p class="media-caption">Zoning</p>
             </div>
             <div class="media-wrapper">
-              <img src="PlanetaryPulse_China.avif" alt="China" class="media-item active" />
+              <img src="PlanetaryPulse_China.avif" alt="China" class="media-item active" loading="lazy" />
               <p class="media-caption">China</p>
             </div>
           </div>
@@ -1196,31 +509,31 @@
           
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="SPIRo Conrad 2.jpg" alt="Conrad 2" class="media-item" />
+              <img src="SPIRo Conrad 2.jpg" alt="Conrad 2" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo, Won Pete Conrad Scholar Award (Energy Cat.)</p>
             </div>
             <div class="media-wrapper">
-              <img src="SPIRo Conrad 1.jpg" alt="Conrad 1" class="media-item" />
+              <img src="SPIRo Conrad 1.jpg" alt="Conrad 1" class="media-item" loading="lazy" />
               <p class="media-caption">SPIRo at Conrad Challenge event</p>
             </div>
             <div class="media-wrapper">
-              <img src="Equinor Pitch.png" alt="Equinor" class="media-item" />
+              <img src="Equinor Pitch.png" alt="Equinor" class="media-item" loading="lazy" />
               <p class="media-caption">Pitching to Equinor Ventures Team</p>
             </div>
             <div class="media-wrapper">
-              <img src="MIT1.png" alt="MIT" class="media-item" />
+              <img src="MIT1.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">On the Winning Prize Trip to MIT</p>
             </div>
             <div class="media-wrapper">
-              <img src="MIT2.png" alt="MIT" class="media-item" />
+              <img src="MIT2.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Invited to MIT's Aero Facility</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad9.png" alt="Conrad 9" class="media-item" />
+              <img src="Conrad9.png" alt="Conrad 9" class="media-item" loading="lazy" />
               <p class="media-caption">Pitching at the Conrad Challenge Finals</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad10.png" alt="Conrad 10" class="media-item" />
+              <img src="Conrad10.png" alt="Conrad 10" class="media-item" loading="lazy" />
               <p class="media-caption">Space Center Houston</p>
             </div>
             
@@ -1228,74 +541,74 @@
           
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="MIT4.png" alt="MIT" class="media-item" />
+              <img src="MIT4.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Presenting to MIT Professors</p>
             </div>
             <div class="media-wrapper">
-              <img src="Diamond1.png" alt="MIT" class="media-item" />
+              <img src="Diamond1.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Pitching at the Diamond Challenge Finals</p>
             </div>
             <div class="media-wrapper">
-              <img src="Diamond3.png" alt="MIT" class="media-item" />
+              <img src="Diamond3.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Diamond Challenge Limitless Summit</p>
             </div>
             <div class="media-wrapper">
-              <img src="Diamond2.png" alt="MIT" class="media-item" />
+              <img src="Diamond2.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Pitching at the Diamond Challenge Summit</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad 70.png" alt="Conrad 8" class="media-item" />
+              <img src="Conrad 70.png" alt="Conrad 8" class="media-item" loading="lazy" />
               <p class="media-caption">Invited to MIT with Ms. Conrad</p>
             </div>
             <div class="media-wrapper">
-              <img src="MIT3.png" alt="MIT" class="media-item" />
+              <img src="MIT3.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">With Ms. Conrad on the Trip</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad5.png" alt="Conrad 5" class="media-item" />
+              <img src="Conrad5.png" alt="Conrad 5" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Expo</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad8.png" alt="Conrad 8" class="media-item" />
+              <img src="Conrad8.png" alt="Conrad 8" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Interview</p>
             </div>
           </div>
           
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="conrad67.png" alt="Equinor" class="media-item" />
+              <img src="conrad67.png" alt="Equinor" class="media-item" loading="lazy" />
               <p class="media-caption">Pitch Day with Ms. Nancy Conrad</p>
             </div>
             <div class="media-wrapper">
-              <img src="DiamondAw.png" alt="MIT" class="media-item" />
+              <img src="DiamondAw.png" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Diamond Challenge Award</p>
             </div>
             <div class="media-wrapper">
-              <img src="ConradEddie.jpg" alt="MIT" class="media-item" />
+              <img src="ConradEddie.jpg" alt="MIT" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Award</p>
             </div>
             <div class="media-wrapper">
-              <img src="Patent.png" alt="Patent" class="media-item" />
+              <img src="Patent.png" alt="Patent" class="media-item" loading="lazy" />
               <p class="media-caption">Patent, To-Be Published Jan. 2026</p>
             </div>
             <div class="media-wrapper">
-              <img src="INC.png" alt="INC" class="media-item" />
+              <img src="INC.png" alt="INC" class="media-item" loading="lazy" />
               <p class="media-caption">Incorporation</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad1.png" alt="Conrad 1" class="media-item" />
+              <img src="Conrad1.png" alt="Conrad 1" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Video Interview</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad3.png" alt="Conrad 3" class="media-item" />
+              <img src="Conrad3.png" alt="Conrad 3" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Expo</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad4.png" alt="Conrad 4" class="media-item" />
+              <img src="Conrad4.png" alt="Conrad 4" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Photoshoot</p>
             </div>
             <div class="media-wrapper">
-              <img src="Conrad68.png" alt="Conrad 4" class="media-item" />
+              <img src="Conrad68.png" alt="Conrad 4" class="media-item" loading="lazy" />
               <p class="media-caption">Conrad Challenge Photoshoot</p>
             </div>
 
@@ -1331,69 +644,69 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="3D1.png" alt="3D printed part - order example 1" class="media-item active" />
+              <img src="3D1.png" alt="3D printed part - order example 1" class="media-item active" loading="lazy" />
               <p class="media-caption">Award Design for a Summer Camp</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D2.png" alt="3D printed part - order example 2" class="media-item" />
+              <img src="3D2.png" alt="3D printed part - order example 2" class="media-item" loading="lazy" />
               <p class="media-caption">3D Printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D18.png" alt="3D printed part - order example 18" class="media-item" />
+              <img src="3D18.png" alt="3D printed part - order example 18" class="media-item" loading="lazy" />
               <p class="media-caption">Filtration Bottle</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D3.png" alt="3D printed part - order example 3" class="media-item" />
+              <img src="3D3.png" alt="3D printed part - order example 3" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D4.png" alt="3D printed part - order example 4" class="media-item" />
+              <img src="3D4.png" alt="3D printed part - order example 4" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D6.png" alt="3D printed part - order example 6" class="media-item" />
+              <img src="3D6.png" alt="3D printed part - order example 6" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Figure</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D10.png" alt="3D printed part - order example 10" class="media-item" />
+              <img src="3D10.png" alt="3D printed part - order example 10" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="3D11.png" alt="3D printed part - order example 11" class="media-item" />
+              <img src="3D11.png" alt="3D printed part - order example 11" class="media-item" loading="lazy" />
               <p class="media-caption">Commissioned Keychains</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D14.png" alt="3D printed part - order example 14" class="media-item" />
+              <img src="3D14.png" alt="3D printed part - order example 14" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D15.png" alt="3D printed part - order example 15" class="media-item" />
+              <img src="3D15.png" alt="3D printed part - order example 15" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D16.png" alt="3D printed part - order example 16" class="media-item" />
+              <img src="3D16.png" alt="3D printed part - order example 16" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D17.png" alt="3D printed part - order example 17" class="media-item" />
+              <img src="3D17.png" alt="3D printed part - order example 17" class="media-item" loading="lazy" />
               <p class="media-caption">Wind Tunnel Design</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D19.png" alt="3D printed part - order example 19" class="media-item" />
+              <img src="3D19.png" alt="3D printed part - order example 19" class="media-item" loading="lazy" />
               <p class="media-caption">Keychain design</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D8.png" alt="3D printed part - order example 8" class="media-item" />
+              <img src="3D8.png" alt="3D printed part - order example 8" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed part</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D9.png" alt="3D printed part - order example 9" class="media-item" />
+              <img src="3D9.png" alt="3D printed part - order example 9" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed part</p>
             </div>
             <div class="media-wrapper">
-              <img src="3D5.png" alt="3D printed part - order example 5" class="media-item" />
+              <img src="3D5.png" alt="3D printed part - order example 5" class="media-item" loading="lazy" />
               <p class="media-caption">3D printed Toy</p>
             </div>
           </div>
@@ -1432,27 +745,27 @@
             <div class="media-container">
               <div class="media-row">
                 <div class="media-wrapper">
-                  <img src="FRC1.png" alt="FRC Team" class="media-item active" />
+                  <img src="FRC1.png" alt="FRC Team" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC Team at competition.</p>
                 </div>
                 <div class="media-wrapper">
-                  <img src="FRC2.png" alt="FRC Robot" class="media-item active" />
+                  <img src="FRC2.png" alt="FRC Robot" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC robot in action.</p>
                 </div>
                 <div class="media-wrapper">
-                  <img src="FRC3.png" alt="FRC3" class="media-item active" />
+                  <img src="FRC3.png" alt="FRC3" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC3</p>
                 </div>
                 <div class="media-wrapper">
-                  <img src="FRC4.png" alt="FRC4" class="media-item active" />
+                  <img src="FRC4.png" alt="FRC4" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC4</p>
                 </div>
                 <div class="media-wrapper">
-                  <img src="FRC5.JPG" alt="FRC5" class="media-item active" />
+                  <img src="FRC5.JPG" alt="FRC5" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC5</p>
                 </div>
                 <div class="media-wrapper">
-                  <img src="FRC6.png" alt="FRC6" class="media-item active" />
+                  <img src="FRC6.png" alt="FRC6" class="media-item active" loading="lazy" />
                   <p class="media-caption">FRC6</p>
                 </div>
               </div>
@@ -1501,51 +814,51 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="FTC1.jpg" alt="IntoTheDeep" class="media-item active" />
+              <img src="FTC1.jpg" alt="IntoTheDeep" class="media-item active" loading="lazy" />
               <p class="media-caption">FTC robot: Into the Deep season.</p>
             </div>
             <div class="media-wrapper">
-              <img src="FTC2.jpg" alt="IntoTheDeep" class="media-item active" />
+              <img src="FTC2.jpg" alt="IntoTheDeep" class="media-item active" loading="lazy" />
               <p class="media-caption">FTC robot: Into the Deep season.</p>
             </div>
             <div class="media-wrapper">
-              <img src="FTC3.jpg" alt="IntoTheDeep" class="media-item active" />
+              <img src="FTC3.jpg" alt="IntoTheDeep" class="media-item active" loading="lazy" />
               <p class="media-caption">FTC robot: Into the Deep season.</p>
             </div>
             <div class="media-wrapper">
-              <img src="FTC Team 1.png" alt="IntoTheDeep" class="media-item active" />
+              <img src="FTC Team 1.png" alt="IntoTheDeep" class="media-item active" loading="lazy" />
               <p class="media-caption">PowerPlay team</p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="Team 3.png" alt="PPP" class="media-item active" />
+              <img src="Team 3.png" alt="PPP" class="media-item active" loading="lazy" />
               <p class="media-caption">Tournament Winning Alliance</p>
             </div>
             <div class="media-wrapper">
-              <img src="IntoTheDeep.png" alt="PPP" class="media-item active" />
+              <img src="IntoTheDeep.png" alt="PPP" class="media-item active" loading="lazy" />
               <p class="media-caption">Power Play robot CAD model.</p>
             </div>
             <div class="media-wrapper">
-              <img src="Team 5.png" alt="PPP" class="media-item active" />
+              <img src="Team 5.png" alt="PPP" class="media-item active" loading="lazy" />
               <p class="media-caption">League Champions</p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="Freight Frenzy Robot.png" alt="Frenzy" class="media-item active" />
+              <img src="Freight Frenzy Robot.png" alt="Frenzy" class="media-item active" loading="lazy" />
               <p class="media-caption">Freight Frenzy robot build.</p>
             </div>
             <div class="media-wrapper">
-              <img src="FTC Team 2.png" alt="Frenzy" class="media-item active" />
+              <img src="FTC Team 2.png" alt="Frenzy" class="media-item active" loading="lazy" />
               <p class="media-caption">Freight Frenzy Team</p>
             </div>
             <div class="media-wrapper">
-              <img src="Power Play Robot.png" alt="PPP" class="media-item active" />
+              <img src="Power Play Robot.png" alt="PPP" class="media-item active" loading="lazy" />
               <p class="media-caption">Power Play robot.</p>
             </div>
             <div class="media-wrapper">
-              <img src="Team 6.png" alt="PPP" class="media-item active" />
+              <img src="Team 6.png" alt="PPP" class="media-item active" loading="lazy" />
               <p class="media-caption">Match Preparation</p>
             </div>
           </div>
@@ -1650,44 +963,44 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="HEVI01.jpg" alt="HEVI 01" class="media-item" />
+              <img src="HEVI01.jpg" alt="HEVI 01" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVI02.jpg" alt="HEVI 02" class="media-item" />
+              <img src="HEVI02.jpg" alt="HEVI 02" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVI03.jpg" alt="HEVI 03" class="media-item" />
+              <img src="HEVI03.jpg" alt="HEVI 03" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVI04.jpg" alt="HEVI 04" class="media-item" />
-            </div>
-          </div>
-          <div class="media-row">
-            <div class="media-wrapper">
-              <img src="HEVI05.jpg" alt="HEVI 05" class="media-item" />
-            </div>
-            <div class="media-wrapper">
-              <img src="HEVI06.jpg" alt="HEVI 06" class="media-item" />
-            </div>
-            <div class="media-wrapper">
-              <img src="HEVI07.jpg" alt="HEVI 07" class="media-item" />
-            </div>
-            <div class="media-wrapper">
-              <img src="HEVI08.jpg" alt="HEVI 08" class="media-item" />
+              <img src="HEVI04.jpg" alt="HEVI 04" class="media-item" loading="lazy" />
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="HEVIDinner01.jpg" alt="HEVI Dinner 01" class="media-item" />
+              <img src="HEVI05.jpg" alt="HEVI 05" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVIDinner03.jpg" alt="HEVI Dinner 03" class="media-item" />
+              <img src="HEVI06.jpg" alt="HEVI 06" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVIDinner04.jpg" alt="HEVI Dinner 04" class="media-item" />
+              <img src="HEVI07.jpg" alt="HEVI 07" class="media-item" loading="lazy" />
             </div>
             <div class="media-wrapper">
-              <img src="HEVIDinner02.jpg" alt="HEVI Dinner 02" class="media-item" />
+              <img src="HEVI08.jpg" alt="HEVI 08" class="media-item" loading="lazy" />
+            </div>
+          </div>
+          <div class="media-row">
+            <div class="media-wrapper">
+              <img src="HEVIDinner01.jpg" alt="HEVI Dinner 01" class="media-item" loading="lazy" />
+            </div>
+            <div class="media-wrapper">
+              <img src="HEVIDinner03.jpg" alt="HEVI Dinner 03" class="media-item" loading="lazy" />
+            </div>
+            <div class="media-wrapper">
+              <img src="HEVIDinner04.jpg" alt="HEVI Dinner 04" class="media-item" loading="lazy" />
+            </div>
+            <div class="media-wrapper">
+              <img src="HEVIDinner02.jpg" alt="HEVI Dinner 02" class="media-item" loading="lazy" />
             </div>
           </div>
         </div>
@@ -1738,11 +1051,11 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="StemWK1.png" alt="STEM Workshops" class="media-item active" />
+              <img src="StemWK1.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="STEMEddie2.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="STEMEddie2.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
@@ -1750,33 +1063,33 @@
               <p class="media-caption">Workshop video.</p>
             </div>
             <div class="media-wrapper">
-              <img src="StemWK4.png" alt="STEM Workshops" class="media-item active" />
+              <img src="StemWK4.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="StemWK5.png" alt="STEM Workshops" class="media-item active" />
+              <img src="StemWK5.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
           </div>
           <div class="media-row">
             <div class="media-wrapper">
-              <img src="STEMEddie1.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="STEMEddie1.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="STEMEddie3.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="STEMEddie3.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="STEMEddie4.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="STEMEddie4.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="StemWK9.png" alt="STEM Workshops" class="media-item active" />
+              <img src="StemWK9.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="StemWK3.png" alt="STEM Workshops" class="media-item active" />
+              <img src="StemWK3.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
           </div>
@@ -1820,19 +1133,19 @@
         <div class="media-container">
           <div class="media-row">
             <div class="media-wrapper">
-            <img src="FTCCoachEddie1.jpg" alt="coaching" class="media-item active" />
+            <img src="FTCCoachEddie1.jpg" alt="coaching" class="media-item active" loading="lazy" />
             <p class="media-caption"></p>
           </div>
           <div class="media-wrapper">
-            <img src="FTCCoachEddie2.jpg" alt="coaching" class="media-item active" />
+            <img src="FTCCoachEddie2.jpg" alt="coaching" class="media-item active" loading="lazy" />
             <p class="media-caption"></p>
           </div>
           <div class="media-wrapper">
-            <img src="FTCCoachEddie3.jpg" alt="coaching" class="media-item active" />
+            <img src="FTCCoachEddie3.jpg" alt="coaching" class="media-item active" loading="lazy" />
             <p class="media-caption"></p>
           </div>
           <div class="media-wrapper">
-            <img src="ftc.png" alt="coaching" class="media-item active" />
+            <img src="ftc.png" alt="coaching" class="media-item active" loading="lazy" />
             <p class="media-caption"></p>
           </div>
           </div>
@@ -1872,29 +1185,29 @@
           <div class="media-container">
             <div class="media-row">
               <div class="media-wrapper">
-                <img src="AirplaneWS1.jpg" alt="Plane Workshops" class="media-item active" />
+                <img src="AirplaneWS1.jpg" alt="Plane Workshops" class="media-item active" loading="lazy" />
                 <p class="media-caption"></p>
               </div>
               <div class="media-wrapper">
-                <img src="plane2.png" alt="Plane Workshops" class="media-item active" />
+                <img src="plane2.png" alt="Plane Workshops" class="media-item active" loading="lazy" />
                 <p class="media-caption"></p>
               </div>
               <div class="media-wrapper">
-                <img src="AirplaneWS2.jpg" alt="Plane Workshops" class="media-item active" />
+                <img src="AirplaneWS2.jpg" alt="Plane Workshops" class="media-item active" loading="lazy" />
                 <p class="media-caption"></p>
               </div>
               <div class="media-wrapper">
-                <img src="AirplaneWS3.jpg" alt="Plane Workshops" class="media-item active" />
+                <img src="AirplaneWS3.jpg" alt="Plane Workshops" class="media-item active" loading="lazy" />
                 <p class="media-caption"></p>
               </div>
               <div class="media-wrapper">
-                <img src="AirplaneWS4.jpg" alt="Plane Workshops" class="media-item active" />
+                <img src="AirplaneWS4.jpg" alt="Plane Workshops" class="media-item active" loading="lazy" />
                 <p class="media-caption"></p>
               </div>
             </div>
             <div class="media-row">
               <div class="media-wrapper">
-                <img src="myplane1.png" alt="RC plane" class="media-item active" />
+                <img src="myplane1.png" alt="RC plane" class="media-item active" loading="lazy" />
                 <p class="media-caption">RC plane</p>
               </div>
               <div class="media-wrapper">
@@ -1938,27 +1251,27 @@
           <div class="media-row">
             
             <div class="media-wrapper">
-              <img src="TennisEddie3.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="TennisEddie3.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="TennisEddie2.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="TennisEddie2.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="TennisEddie1.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="TennisEddie1.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="TennisEddie4.jpg" alt="STEM Workshops" class="media-item active" />
+              <img src="TennisEddie4.jpg" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="tennis5.png" alt="STEM Workshops" class="media-item active" />
+              <img src="tennis5.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
             <div class="media-wrapper">
-              <img src="tennis6.png" alt="STEM Workshops" class="media-item active" />
+              <img src="tennis6.png" alt="STEM Workshops" class="media-item active" loading="lazy" />
               <p class="media-caption"></p>
             </div>
 
@@ -1989,33 +1302,33 @@
           <div class="media-container">
             <div class="media-row">
               <div class="media-wrapper">
-                <img src="YanZhao01.jpg" alt="YanZhao 01" class="media-item" />
+                <img src="YanZhao01.jpg" alt="YanZhao 01" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao02.jpg" alt="YanZhao 02" class="media-item" />
+                <img src="YanZhao02.jpg" alt="YanZhao 02" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao03.jpg" alt="YanZhao 03" class="media-item" />
+                <img src="YanZhao03.jpg" alt="YanZhao 03" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao04.jpg" alt="YanZhao 04" class="media-item" />
+                <img src="YanZhao04.jpg" alt="YanZhao 04" class="media-item" loading="lazy" />
               </div>
             </div>
             <div class="media-row">
               <div class="media-wrapper">
-                <img src="YanZhao05.jpg" alt="YanZhao 05" class="media-item" />
+                <img src="YanZhao05.jpg" alt="YanZhao 05" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao06.jpg" alt="YanZhao 06" class="media-item" />
+                <img src="YanZhao06.jpg" alt="YanZhao 06" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao07.jpg" alt="YanZhao 07" class="media-item" />
+                <img src="YanZhao07.jpg" alt="YanZhao 07" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao08.jpg" alt="YanZhao 08" class="media-item" />
+                <img src="YanZhao08.jpg" alt="YanZhao 08" class="media-item" loading="lazy" />
               </div>
               <div class="media-wrapper">
-                <img src="YanZhao09.jpg" alt="YanZhao 09" class="media-item" />
+                <img src="YanZhao09.jpg" alt="YanZhao 09" class="media-item" loading="lazy" />
               </div>
             </div>
           </div>
@@ -2044,53 +1357,6 @@
       </div>
 </section>
 </div>
-
-
-<!--   <script>
-    (function() {
-      const correctPassword = "1"; // Change this to your password
-
-      function promptPassword() {
-        const entered = prompt("Enter password to access this site:");
-        if (entered === correctPassword) {
-          return;
-        } else {
-          alert("Incorrect password. Please try again.");
-          promptPassword();
-        }
-      }
-
-      promptPassword();
-    })();
-  </script> -->
-
-<!-- particles -->
-<!-- <script>
-  document.addEventListener("mousemove", function(e) {
-    const particle = document.createElement("div");
-    particle.classList.add("particle");
-    particle.style.left = e.pageX + "px";
-    particle.style.top = e.pageY + "px";
-
-    const colors = ['#FFAA00', '#FF4444', '#4488FF'];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    particle.style.background = color;
-    particle.style.boxShadow = `0 0 10px ${color}`;
-
-    const angle = Math.random() * 2 * Math.PI;
-    const distance = 5 + Math.random() * 10;
-    const dx = Math.cos(angle) * distance;
-    const dy = Math.sin(angle) * distance;
-    particle.style.transform = `translate(${dx}px, ${dy}px) scale(1)`;
-
-    document.body.appendChild(particle);
-
-    setTimeout(() => {
-      particle.remove();
-    }, 1000);
-  });
-</script> -->
-
 
 
 <script>
